@@ -23,7 +23,7 @@ jobs:
     
     steps:
       - print_pipeline_id:
-          output: "output.txt"
+          output: "new"
       
   
   print_output_file:
@@ -37,7 +37,7 @@ jobs:
       - run:
           name: "echo name"
           command: |
-            cat /tmp/output.txt
+            cat /tmp/new
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
