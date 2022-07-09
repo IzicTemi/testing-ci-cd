@@ -10,7 +10,9 @@ commands:
         type: string
         default: "new"
     steps:
-      - run: echo $CIRCLE_WORKFLOW_ID > /tmp/<< parameters.output >>
+      - run: 
+          command: |
+            echo $CIRCLE_WORKFLOW_ID > /tmp/<< parameters.output >>
       - persist_to_workspace:
           root: /tmp
           paths:
