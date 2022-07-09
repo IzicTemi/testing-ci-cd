@@ -5,7 +5,7 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "prints the Circle CI Workflow ID to a  file"
-    Parameters:
+    parameters:
       output:
         type: string
         default: "new"
