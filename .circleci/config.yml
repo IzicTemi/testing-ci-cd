@@ -2,6 +2,18 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+commands:
+  print_pipeline_id:
+    description: "prints the Circle CI Workflow ID to a  file"
+    Parameters:
+      to:
+        type: string
+    steps:
+      - run: echo $CIRCLE_WORKFLOW_ID > /tmp/<< parameters.output >>
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - << parameters.output >>
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -10,14 +22,9 @@ jobs:
       - image: alpine:latest
     
     steps:
-      - run:
-          name: "echo hello world to file"
-          command: |
-            echo "hello world" > /tmp/output.txt
-      - persist_to_workspace:
-          root: /tmp
-          paths:
-            - output.txt
+      - print_pipeline_id:
+          to: output.txt
+      
   
   print_output_file:
 
