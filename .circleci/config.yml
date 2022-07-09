@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "echo hello"
+          name: "echo 'hello'"
   
   print-world:
 
@@ -23,7 +23,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "echo world"
+          name: "echo 'world'"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
