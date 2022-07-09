@@ -7,7 +7,7 @@ commands:
     description: "prints the Circle CI Workflow ID to a  file"
     Parameters:
       output:
-        type: mapping
+        type: string
     steps:
       - run: echo $CIRCLE_WORKFLOW_ID > /tmp/<< parameters.output >>
       - persist_to_workspace:
@@ -23,7 +23,7 @@ jobs:
     
     steps:
       - print_pipeline_id:
-          output: output.txt
+          output: "output.txt"
       
   
   print_output_file:
